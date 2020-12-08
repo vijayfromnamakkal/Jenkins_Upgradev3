@@ -1,8 +1,9 @@
 pipeline {
-    //agent any
+    agent any
     stages {
-        node('master') {
+       
                 stage('Build Application') {
+                     node('master') {
                     steps {
                         sh 'mvn -f java-tomcat-sample/pom.xml clean package'
                     }
