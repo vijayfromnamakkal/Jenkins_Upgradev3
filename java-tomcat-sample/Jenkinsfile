@@ -3,7 +3,7 @@ pipeline {
     stages {
        
                 stage('Build Application') {
-                     node('master') {
+               
                     steps {
                         sh 'mvn -f java-tomcat-sample/pom.xml clean package'
                     }
@@ -14,7 +14,7 @@ pipeline {
                         }
                     }
                 }
-        }
+        
         /*
         stage('Deploy in Staging Environment'){
             steps{
