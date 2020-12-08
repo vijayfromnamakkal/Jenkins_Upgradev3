@@ -17,17 +17,23 @@ pipeline {
                     }
                 }
         
-        /*
+        
         stage('Deploy in Staging Environment'){
+            agent {
+                     label 'slaveone'   
+                    }
             steps{
                 build job: 'deploy-on-qa'
 
             }
             
         }
-        */
-        /*
+        
+        
        stage('Deploy to Production'){
+             agent {
+                     label 'slavetwo'   
+                    }
             steps{
                 timeout(time:5, unit:'DAYS'){
                     input message:'Approve PRODUCTION Deployment?'
@@ -35,7 +41,7 @@ pipeline {
                 build job: 'deploy-to-prd'
             }
         }
-        */
+        
         
     }
 }
